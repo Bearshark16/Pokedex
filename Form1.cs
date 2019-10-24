@@ -43,29 +43,63 @@ namespace Pokedex
                 poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
             }
 
-            pokemonName.Text = NameToUpper(poke.name);
+            var stats = GetStatList();
+            var abilities = GetAbilityList();
+
+            pokemonName.Text = poke.name;
             heightLable.Text = "Height: " + poke.height.ToString();
             expLable.Text = "Exp: " + poke.base_experience.ToString();
             typeLable.Text = "Type: " + poke.types[0].type.name;
             pokemonImage.ImageLocation = poke.sprites.front_default;
 
-            statListBox.Items.Clear();
+            StatListView.Items.Clear();
 
-            foreach(StatContainer s in poke.stats)
+            foreach(var s in stats)
             {
-                statListBox.Items.Add(s.stat.name + ": " + s.base_stat);
-                statListBox.Items.Add("");
+                var listRow = new string[] { s.statName, s.statValue.ToString() };
+                var listItem = new ListViewItem(listRow);
+                listItem.Tag = s;
+
+                StatListView.Items.Add(listItem);
             }
 
-            abilityList.Items.Clear();
+            AbilityListView.Items.Clear();
 
-            foreach(AbilityContainer a in poke.abilities)
+            foreach(var a in abilities)
             {
-                abilityList.Items.Add(a.ability.name + "\n Hidden: " + a.is_hidden + "\n Slot: " + a.slot);
+                var listRow = new string[] { a.abilityName, a.abilityHidden.ToString(), a.abilitySlot.ToString() };
+                var listItem = new ListViewItem(listRow);
+                listItem.Tag = a;
+
+                AbilityListView.Items.Add(listItem);
             }
         }
 
-        static string NameToUpper(string name)
+        private List<Abilities> GetAbilityList()
+        {
+            var list = new List<Abilities>();
+
+            foreach(AbilityContainer a in poke.abilities)
+            {
+                list.Add(new Abilities() { abilityName = a.ability.name, abilityHidden = a.is_hidden, abilitySlot = a.slot });
+            }
+
+            return list;
+        }
+
+        private List<Stats> GetStatList()
+        {
+            var list = new List<Stats>();
+
+            foreach(StatContainer s in poke.stats)
+            {
+                list.Add(new Stats() { statName = s.stat.name, statValue = s.base_stat });
+            }
+
+            return list;
+        }
+
+        /*static string NameToUpper(string name)
         {
             List<string> split = new List<string>() { };
 
@@ -106,6 +140,6 @@ namespace Pokedex
             }
 
             return result;
-        }
+        }*/
     }
 }

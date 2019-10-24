@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,6 +28,11 @@ namespace Pokedex
             RestRequest request = new RestRequest("pokemon/" + searchTextBox.Text.ToLower());
             IRestResponse response = client.Get(request);
 
+            if (searchTextBox.Text.Any(x => !char.IsLetter(x)))
+            {
+                return;
+            }
+
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 warnngLable.Text = "Pokémon does not exist!";
@@ -40,6 +46,7 @@ namespace Pokedex
             pokemonName.Text = NameToUpper(poke.name);
             heightLable.Text = "Height: " + poke.height.ToString();
             expLable.Text = "Exp: " + poke.base_experience.ToString();
+            typeLable.Text = "Type: " + poke.types[0].type.name;
             pokemonImage.ImageLocation = poke.sprites.front_default;
 
             statListBox.Items.Clear();

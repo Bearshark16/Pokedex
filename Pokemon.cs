@@ -14,5 +14,6 @@ namespace Pokedex
         public string name;
         public StatContainer[] stats;
         public Sprites sprites;
+        public TypeContainer[] types;
     }
 }

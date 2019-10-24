@@ -67,6 +67,8 @@
     <Compile Include="Sprites.cs" />
     <Compile Include="Stat.cs" />
     <Compile Include="StatContainer.cs" />
+    <Compile Include="Type.cs" />
+    <Compile Include="TypeContainer.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

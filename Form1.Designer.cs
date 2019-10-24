@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.expLable = new System.Windows.Forms.Label();
-            this.heightLable = new System.Windows.Forms.Label();
             this.pokemonName = new System.Windows.Forms.Label();
+            this.heightLable = new System.Windows.Forms.Label();
+            this.expLable = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.abilityList = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.statListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.statListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.warnngLable = new System.Windows.Forms.Label();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
             this.pokemonImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.abilityList = new System.Windows.Forms.ListBox();
+            this.typeLable = new System.Windows.Forms.Label();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -57,23 +58,23 @@
             this.flowLayoutPanel3.Controls.Add(this.pokemonName);
             this.flowLayoutPanel3.Controls.Add(this.heightLable);
             this.flowLayoutPanel3.Controls.Add(this.expLable);
+            this.flowLayoutPanel3.Controls.Add(this.typeLable);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(263, 62);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(220, 184);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(223, 184);
             this.flowLayoutPanel3.TabIndex = 8;
             // 
-            // expLable
+            // pokemonName
             // 
-            this.expLable.AutoSize = true;
-            this.expLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expLable.Location = new System.Drawing.Point(8, 61);
-            this.expLable.Margin = new System.Windows.Forms.Padding(8, 5, 3, 0);
-            this.expLable.Name = "expLable";
-            this.expLable.Size = new System.Drawing.Size(41, 20);
-            this.expLable.TabIndex = 9;
-            this.expLable.Text = "EXP";
+            this.pokemonName.AutoSize = true;
+            this.pokemonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pokemonName.Location = new System.Drawing.Point(3, 0);
+            this.pokemonName.Name = "pokemonName";
+            this.pokemonName.Size = new System.Drawing.Size(86, 31);
+            this.pokemonName.TabIndex = 7;
+            this.pokemonName.Text = "Name";
             // 
             // heightLable
             // 
@@ -86,15 +87,16 @@
             this.heightLable.TabIndex = 8;
             this.heightLable.Text = "Height";
             // 
-            // pokemonName
+            // expLable
             // 
-            this.pokemonName.AutoSize = true;
-            this.pokemonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pokemonName.Location = new System.Drawing.Point(3, 0);
-            this.pokemonName.Name = "pokemonName";
-            this.pokemonName.Size = new System.Drawing.Size(86, 31);
-            this.pokemonName.TabIndex = 7;
-            this.pokemonName.Text = "Name";
+            this.expLable.AutoSize = true;
+            this.expLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expLable.Location = new System.Drawing.Point(8, 61);
+            this.expLable.Margin = new System.Windows.Forms.Padding(8, 5, 3, 0);
+            this.expLable.Name = "expLable";
+            this.expLable.Size = new System.Drawing.Size(41, 20);
+            this.expLable.TabIndex = 9;
+            this.expLable.Text = "EXP";
             // 
             // flowLayoutPanel2
             // 
@@ -103,7 +105,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(263, 252);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(220, 534);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(223, 534);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // label2
@@ -117,6 +119,16 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Abilities";
             // 
+            // abilityList
+            // 
+            this.abilityList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.abilityList.FormattingEnabled = true;
+            this.abilityList.ItemHeight = 50;
+            this.abilityList.Location = new System.Drawing.Point(3, 42);
+            this.abilityList.Name = "abilityList";
+            this.abilityList.Size = new System.Drawing.Size(217, 485);
+            this.abilityList.TabIndex = 6;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
@@ -127,16 +139,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(231, 534);
             this.flowLayoutPanel1.TabIndex = 5;
-            // 
-            // statListBox
-            // 
-            this.statListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statListBox.FormattingEnabled = true;
-            this.statListBox.ItemHeight = 20;
-            this.statListBox.Location = new System.Drawing.Point(3, 42);
-            this.statListBox.Name = "statListBox";
-            this.statListBox.Size = new System.Drawing.Size(225, 484);
-            this.statListBox.TabIndex = 7;
             // 
             // label1
             // 
@@ -149,6 +151,16 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Stats";
             // 
+            // statListBox
+            // 
+            this.statListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statListBox.FormattingEnabled = true;
+            this.statListBox.ItemHeight = 20;
+            this.statListBox.Location = new System.Drawing.Point(3, 42);
+            this.statListBox.Name = "statListBox";
+            this.statListBox.Size = new System.Drawing.Size(225, 484);
+            this.statListBox.TabIndex = 7;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.warnngLable);
@@ -160,17 +172,14 @@
             this.panel1.Size = new System.Drawing.Size(231, 53);
             this.panel1.TabIndex = 1;
             // 
-            // searchButton
+            // warnngLable
             // 
-            this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchButton.Location = new System.Drawing.Point(3, 18);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(92, 20);
-            this.searchButton.TabIndex = 0;
-            this.searchButton.Text = "Seartch";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.warnngLable.AutoSize = true;
+            this.warnngLable.ForeColor = System.Drawing.Color.Red;
+            this.warnngLable.Location = new System.Drawing.Point(98, 41);
+            this.warnngLable.Name = "warnngLable";
+            this.warnngLable.Size = new System.Drawing.Size(0, 13);
+            this.warnngLable.TabIndex = 2;
             // 
             // searchTextBox
             // 
@@ -180,14 +189,19 @@
             this.searchTextBox.Size = new System.Drawing.Size(127, 20);
             this.searchTextBox.TabIndex = 1;
             // 
-            // warnngLable
+            // searchButton
             // 
-            this.warnngLable.AutoSize = true;
-            this.warnngLable.ForeColor = System.Drawing.Color.Red;
-            this.warnngLable.Location = new System.Drawing.Point(98, 41);
-            this.warnngLable.Name = "warnngLable";
-            this.warnngLable.Size = new System.Drawing.Size(0, 13);
-            this.warnngLable.TabIndex = 2;
+            this.searchButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.searchButton.FlatAppearance.BorderSize = 0;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.searchButton.Location = new System.Drawing.Point(3, 18);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(92, 20);
+            this.searchButton.TabIndex = 0;
+            this.searchButton.Text = "Seartch";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // pokemonImage
             // 
@@ -204,8 +218,8 @@
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.146341F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.85366F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 803F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 229F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 800F));
             this.tableLayoutPanel1.Controls.Add(this.pokemonImage, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
@@ -222,15 +236,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1290, 810);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // abilityList
+            // typeLable
             // 
-            this.abilityList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.abilityList.FormattingEnabled = true;
-            this.abilityList.ItemHeight = 50;
-            this.abilityList.Location = new System.Drawing.Point(3, 42);
-            this.abilityList.Name = "abilityList";
-            this.abilityList.Size = new System.Drawing.Size(217, 485);
-            this.abilityList.TabIndex = 6;
+            this.typeLable.AutoSize = true;
+            this.typeLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeLable.Location = new System.Drawing.Point(8, 86);
+            this.typeLable.Margin = new System.Windows.Forms.Padding(8, 5, 3, 0);
+            this.typeLable.Name = "typeLable";
+            this.typeLable.Size = new System.Drawing.Size(43, 20);
+            this.typeLable.TabIndex = 10;
+            this.typeLable.Text = "Type";
             // 
             // Form1
             // 
@@ -272,6 +287,7 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.PictureBox pokemonImage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label typeLable;
     }
 }
 

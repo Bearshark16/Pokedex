@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace Pokedex
         }
 
         RestClient client = new RestClient("https://pokeapi.co/api/v2/");
+        Pokemon poke;
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -32,6 +34,18 @@ namespace Pokedex
             else
             {
                 warnngLable.Text = null;
+                poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+            }
+
+            pokemonName.Text = poke.name;
+            heightLable.Text = "Height: " + poke.height.ToString();
+            expLable.Text = "Exp: " + poke.base_experience.ToString();
+
+            statListBox.Items.Clear();
+
+            foreach(StatContainer s in poke.stats)
+            {
+                statListBox.Items.Add(s.stat.name + ": " + s.base_stat + "\n");
             }
         }
     }

@@ -13,5 +13,6 @@ namespace Pokedex
         public int height;
         public string name;
         public StatContainer[] stats;
+        public Sprites sprites;
     }
 }

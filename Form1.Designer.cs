@@ -32,9 +32,14 @@
             this.pokemonName = new System.Windows.Forms.Label();
             this.heightLable = new System.Windows.Forms.Label();
             this.expLable = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.typeLable = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.AbilityListView = new System.Windows.Forms.ListView();
+            this.chAbility = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chHidden = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.StatListView = new System.Windows.Forms.ListView();
@@ -46,19 +51,26 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.pokemonImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.chMove = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.InventoryListView = new System.Windows.Forms.ListView();
+            this.chItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chFlingPower = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label4 = new System.Windows.Forms.Label();
+            this.listView3 = new System.Windows.Forms.ListView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.AbilityListView = new System.Windows.Forms.ListView();
-            this.chAbility = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chHidden = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonImage)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -68,10 +80,11 @@
             this.flowLayoutPanel3.Controls.Add(this.pokemonName);
             this.flowLayoutPanel3.Controls.Add(this.heightLable);
             this.flowLayoutPanel3.Controls.Add(this.expLable);
+            this.flowLayoutPanel3.Controls.Add(this.progressBar1);
             this.flowLayoutPanel3.Controls.Add(this.typeLable);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(260, 80);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(258, 80);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(237, 214);
             this.flowLayoutPanel3.TabIndex = 8;
@@ -108,11 +121,19 @@
             this.expLable.TabIndex = 9;
             this.expLable.Text = "EXP";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(11, 84);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.TabIndex = 11;
+            // 
             // typeLable
             // 
             this.typeLable.AutoSize = true;
             this.typeLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeLable.Location = new System.Drawing.Point(8, 86);
+            this.typeLable.Location = new System.Drawing.Point(8, 115);
             this.typeLable.Margin = new System.Windows.Forms.Padding(8, 5, 3, 0);
             this.typeLable.Name = "typeLable";
             this.typeLable.Size = new System.Drawing.Size(43, 20);
@@ -124,7 +145,7 @@
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Controls.Add(this.AbilityListView);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(260, 300);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(258, 300);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(237, 461);
             this.flowLayoutPanel2.TabIndex = 6;
@@ -140,6 +161,33 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Abilities";
             // 
+            // AbilityListView
+            // 
+            this.AbilityListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chAbility,
+            this.chHidden,
+            this.columnHeader1});
+            this.AbilityListView.HideSelection = false;
+            this.AbilityListView.Location = new System.Drawing.Point(3, 42);
+            this.AbilityListView.Name = "AbilityListView";
+            this.AbilityListView.Size = new System.Drawing.Size(230, 416);
+            this.AbilityListView.TabIndex = 6;
+            this.AbilityListView.UseCompatibleStateImageBehavior = false;
+            this.AbilityListView.View = System.Windows.Forms.View.Details;
+            // 
+            // chAbility
+            // 
+            this.chAbility.Text = "Ability";
+            this.chAbility.Width = 100;
+            // 
+            // chHidden
+            // 
+            this.chHidden.Text = "Hidden";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Slot";
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
@@ -148,7 +196,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(26, 300);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(228, 461);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(226, 461);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // label1
@@ -194,7 +242,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(26, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(228, 71);
+            this.panel1.Size = new System.Drawing.Size(226, 71);
             this.panel1.TabIndex = 1;
             // 
             // warnngLable
@@ -234,7 +282,7 @@
             this.pokemonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pokemonImage.Location = new System.Drawing.Point(26, 80);
             this.pokemonImage.Name = "pokemonImage";
-            this.pokemonImage.Size = new System.Drawing.Size(228, 214);
+            this.pokemonImage.Size = new System.Drawing.Size(226, 214);
             this.pokemonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pokemonImage.TabIndex = 0;
             this.pokemonImage.TabStop = false;
@@ -246,14 +294,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.146341F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.85366F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 231F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 249F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 236F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 292F));
             this.tableLayoutPanel1.Controls.Add(this.pokemonImage, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.listView1, 5, 2);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel4, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -264,6 +314,94 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1276, 775);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chMove});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(986, 300);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(283, 461);
+            this.listView1.TabIndex = 9;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // chMove
+            // 
+            this.chMove.Text = "Move";
+            this.chMove.Width = 100;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.label3);
+            this.flowLayoutPanel4.Controls.Add(this.InventoryListView);
+            this.flowLayoutPanel4.Controls.Add(this.label4);
+            this.flowLayoutPanel4.Controls.Add(this.listView3);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(501, 300);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(243, 461);
+            this.flowLayoutPanel4.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 31);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Inventory";
+            // 
+            // InventoryListView
+            // 
+            this.InventoryListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chItem,
+            this.chCost,
+            this.chFlingPower});
+            this.InventoryListView.HideSelection = false;
+            this.InventoryListView.Location = new System.Drawing.Point(3, 42);
+            this.InventoryListView.Name = "InventoryListView";
+            this.InventoryListView.Size = new System.Drawing.Size(240, 175);
+            this.InventoryListView.TabIndex = 7;
+            this.InventoryListView.UseCompatibleStateImageBehavior = false;
+            this.InventoryListView.View = System.Windows.Forms.View.Details;
+            // 
+            // chItem
+            // 
+            this.chItem.Text = "Item";
+            this.chItem.Width = 90;
+            // 
+            // chCost
+            // 
+            this.chCost.Text = "Cost";
+            // 
+            // chFlingPower
+            // 
+            this.chFlingPower.Text = "Fling Power";
+            this.chFlingPower.Width = 85;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 228);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 31);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Moves";
+            // 
+            // listView3
+            // 
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(3, 262);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(240, 197);
+            this.listView3.TabIndex = 9;
+            this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // tabControl1
             // 
@@ -298,33 +436,6 @@
             this.tabPage2.Text = "Type Search";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // AbilityListView
-            // 
-            this.AbilityListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chAbility,
-            this.chHidden,
-            this.columnHeader1});
-            this.AbilityListView.HideSelection = false;
-            this.AbilityListView.Location = new System.Drawing.Point(3, 42);
-            this.AbilityListView.Name = "AbilityListView";
-            this.AbilityListView.Size = new System.Drawing.Size(230, 416);
-            this.AbilityListView.TabIndex = 6;
-            this.AbilityListView.UseCompatibleStateImageBehavior = false;
-            this.AbilityListView.View = System.Windows.Forms.View.Details;
-            // 
-            // chAbility
-            // 
-            this.chAbility.Text = "Ability";
-            this.chAbility.Width = 100;
-            // 
-            // chHidden
-            // 
-            this.chHidden.Text = "Hidden";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Slot";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +455,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonImage)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -377,6 +490,17 @@
         private System.Windows.Forms.ColumnHeader chAbility;
         private System.Windows.Forms.ColumnHeader chHidden;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader chMove;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListView InventoryListView;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ColumnHeader chItem;
+        private System.Windows.Forms.ColumnHeader chCost;
+        private System.Windows.Forms.ColumnHeader chFlingPower;
     }
 }
 

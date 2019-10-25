@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities.cs" />
+    <Compile Include="Items.cs" />
+    <Compile Include="JSON convertion classes\HeldItems.cs" />
+    <Compile Include="JSON convertion classes\Item.cs" />
     <Compile Include="JSON convertion classes\Ability.cs" />
     <Compile Include="JSON convertion classes\AbilityContainer.cs" />
     <Compile Include="Form1.cs">
@@ -62,6 +65,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="JSON convertion classes\ItemInfo.cs" />
     <Compile Include="JSON convertion classes\Pokemon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

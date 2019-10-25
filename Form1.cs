@@ -21,12 +21,16 @@ namespace Pokedex
         }
 
         RestClient client = new RestClient("https://pokeapi.co/api/v2/");
+        RestRequest request;
+        IRestResponse response;
+
         Pokemon poke;
+        ItemInfo itemInfo;
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            RestRequest request = new RestRequest("pokemon/" + searchTextBox.Text.ToLower());
-            IRestResponse response = client.Get(request);
+            request = new RestRequest("pokemon/" + searchTextBox.Text.ToLower());
+            response = client.Get(request);
 
             if (searchTextBox.Text.Any(x => !char.IsLetter(x)))
             {
@@ -45,6 +49,7 @@ namespace Pokedex
 
             var stats = GetStatList();
             var abilities = GetAbilityList();
+            var items = GetItemList();
 
             pokemonName.Text = poke.name;
             heightLable.Text = "Height: " + poke.height.ToString();
@@ -73,6 +78,34 @@ namespace Pokedex
 
                 AbilityListView.Items.Add(listItem);
             }
+
+            InventoryListView.Items.Clear();
+
+            foreach (var i in items)
+            {
+                var listRow = new string[] { i.itemName, i.itemCost.ToString(), i.itemFlingPower.ToString() };
+                var listItem = new ListViewItem(listRow);
+                listItem.Tag = i;
+
+                InventoryListView.Items.Add(listItem);
+            }
+
+        }
+
+        private List<Items> GetItemList()
+        {
+            var list = new List<Items>();
+
+            foreach (HeldItems h in poke.held_items)
+            {
+                string[] url = h.item.url.Split('/');
+                request = new RestRequest("item/" + url[6]);
+                response = client.Get(request);
+                itemInfo = JsonConvert.DeserializeObject<ItemInfo>(response.Content);
+                list.Add(new Items() { itemName = h.item.name, itemCost = itemInfo.cost, itemFlingPower = itemInfo.fling_power });
+            }
+
+            return list;
         }
 
         private List<Abilities> GetAbilityList()

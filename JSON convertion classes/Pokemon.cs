@@ -11,6 +11,7 @@ namespace Pokedex
         public AbilityContainer[] abilities;
         public int base_experience;
         public int height;
+        public HeldItems[] held_items;
         public string name;
         public StatContainer[] stats;
         public Sprites sprites;

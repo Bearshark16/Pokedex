@@ -12,9 +12,11 @@ namespace Pokedex
         public int base_experience;
         public int height;
         public HeldItems[] held_items;
+        public MoveContainer[] moves;
         public string name;
         public StatContainer[] stats;
         public Sprites sprites;
         public TypeContainer[] types;
+        public string url;
     }
 }

@@ -26,11 +26,16 @@ namespace Pokedex
 
         Pokemon poke;
         ItemInfo itemInfo;
+        MoveInfo moveInfo;
+        TypeInfo type;
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             request = new RestRequest("pokemon/" + searchTextBox.Text.ToLower());
             response = client.Get(request);
+
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 1000;
 
             if (searchTextBox.Text.Any(x => !char.IsLetter(x)))
             {
@@ -50,10 +55,12 @@ namespace Pokedex
             var stats = GetStatList();
             var abilities = GetAbilityList();
             var items = GetItemList();
+            var moves = GetMoveList();
 
             pokemonName.Text = poke.name;
             heightLable.Text = "Height: " + poke.height.ToString();
             expLable.Text = "Exp: " + poke.base_experience.ToString();
+            progressBar1.Value = poke.base_experience;
             typeLable.Text = "Type: " + poke.types[0].type.name;
             pokemonImage.ImageLocation = poke.sprites.front_default;
 
@@ -90,6 +97,56 @@ namespace Pokedex
                 InventoryListView.Items.Add(listItem);
             }
 
+            MoveListView.Items.Clear();
+
+            foreach (var m in moves)
+            {
+                var listRow = new string[] { m.moveName, m.movePowerPoint.ToString(), m.moveType, m.moveEffect };
+                var listItem = new ListViewItem(listRow);
+                listItem.Tag = m;
+
+                MoveListView.Items.Add(listItem);
+            }
+
+        }
+
+        private void TypeSearchButton_Click(object sender, EventArgs e)
+        {
+            request = new RestRequest("pokemon/" + TypeSearchTextBox.Text.ToLower());
+            response = client.Get(request);
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                warningLable2.Text = "Type does not exist!";
+            }
+            else
+            {
+                warningLable2.Text = null;
+                type = JsonConvert.DeserializeObject<TypeInfo>(response.Content);
+            }
+
+            var pokemons = GetPokemonList();
+        }
+
+        private List<Pokemon> GetPokemonList()
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<Moves> GetMoveList()
+        {
+            var list = new List<Moves>();
+
+            foreach (MoveContainer m in poke.moves)
+            {
+                string[] url = m.move.url.Split('/');
+                request = new RestRequest("move/" + url[6]);
+                response = client.Get(request);
+                moveInfo = JsonConvert.DeserializeObject<MoveInfo>(response.Content);
+                list.Add(new Moves() { moveName = m.move.name, moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
+            }
+
+            return list;
         }
 
         private List<Items> GetItemList()
@@ -112,7 +169,7 @@ namespace Pokedex
         {
             var list = new List<Abilities>();
 
-            foreach(AbilityContainer a in poke.abilities)
+            foreach (AbilityContainer a in poke.abilities)
             {
                 list.Add(new Abilities() { abilityName = a.ability.name, abilityHidden = a.is_hidden, abilitySlot = a.slot });
             }
@@ -124,7 +181,7 @@ namespace Pokedex
         {
             var list = new List<Stats>();
 
-            foreach(StatContainer s in poke.stats)
+            foreach (StatContainer s in poke.stats)
             {
                 list.Add(new Stats() { statName = s.stat.name, statValue = s.base_stat });
             }

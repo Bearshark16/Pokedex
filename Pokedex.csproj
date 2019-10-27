@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abilities.cs" />
+    <Compile Include="JSON convertion classes\EffectContainer.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="JSON convertion classes\HeldItems.cs" />
     <Compile Include="JSON convertion classes\Item.cs" />
@@ -67,6 +68,11 @@
     </Compile>
     <Compile Include="JSON convertion classes\ItemInfo.cs" />
     <Compile Include="JSON convertion classes\Pokemon.cs" />
+    <Compile Include="JSON convertion classes\MoveContainer.cs" />
+    <Compile Include="JSON convertion classes\Move.cs" />
+    <Compile Include="JSON convertion classes\MoveInfo.cs" />
+    <Compile Include="Moves.cs" />
+    <Compile Include="PokemonContainer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JSON convertion classes\Sprites.cs" />
@@ -75,6 +81,8 @@
     <Compile Include="Stats.cs" />
     <Compile Include="JSON convertion classes\Type.cs" />
     <Compile Include="JSON convertion classes\TypeContainer.cs" />
+    <Compile Include="JSON convertion classes\TypeInfo.cs" />
+    <Compile Include="Types.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

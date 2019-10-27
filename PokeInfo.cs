@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pokedex
 {
-    class PokemonContainer
+    class PokeInfo
     {
-        public PokeInfo pokemon;
-        public int slot;
+        public string name;
+        public string url;
     }
 }

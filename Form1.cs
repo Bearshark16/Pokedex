@@ -126,11 +126,29 @@ namespace Pokedex
             }
 
             var pokemons = GetPokemonList();
+
+            TypeDataGridView.Rows.Clear();
+
+            foreach (var t in pokemons)
+            {
+                TypeDataGridView.Rows.Add(t.ImageUrl, t.Name, t.Exp, t.Height, t.Weight);
+            }
         }
 
-        private List<Pokemon> GetPokemonList()
+        private List<Types> GetPokemonList()
         {
-            throw new NotImplementedException();
+            var list = new List<Types>();
+
+            foreach (PokemonContainer p in type.pokemon)
+            {
+                string[] url = p.pokemon.url.Split('/');
+                request = new RestRequest("pokemon/" + url[6]);
+                response = client.Get(request);
+                poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+                list.Add(new Types() { ImageUrl = p.pokemon.url, Name = p.pokemon.name, Exp = poke.base_experience, Height = poke.height, Weight = poke.weight });
+            }
+
+            return list;
         }
 
         private List<Moves> GetMoveList()

@@ -73,16 +73,16 @@
             this.chLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Image = new System.Windows.Forms.DataGridViewImageColumn();
-            this.chName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeDataGridView = new System.Windows.Forms.DataGridView();
             this.TypeSearchButton = new System.Windows.Forms.Button();
             this.TypeSearchTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.warningLable2 = new System.Windows.Forms.Label();
+            this.chPokeImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.chName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -97,7 +97,7 @@
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -531,7 +531,7 @@
             // flowLayoutPanel7
             // 
             this.flowLayoutPanel7.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel7.Controls.Add(this.dataGridView1);
+            this.flowLayoutPanel7.Controls.Add(this.TypeDataGridView);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
@@ -548,52 +548,24 @@
             this.flowLayoutPanel8.Size = new System.Drawing.Size(1268, 100);
             this.flowLayoutPanel8.TabIndex = 1;
             // 
-            // dataGridView1
+            // TypeDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Image,
+            this.TypeDataGridView.AllowUserToAddRows = false;
+            this.TypeDataGridView.AllowUserToDeleteRows = false;
+            this.TypeDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.TypeDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.TypeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TypeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chPokeImage,
             this.chName,
             this.chExp,
             this.chHeight,
             this.chWeight});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 109);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1266, 680);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // Image
-            // 
-            this.Image.HeaderText = "Pokémon";
-            this.Image.Name = "Image";
-            this.Image.ReadOnly = true;
-            // 
-            // chName
-            // 
-            this.chName.HeaderText = "Name";
-            this.chName.Name = "chName";
-            this.chName.ReadOnly = true;
-            // 
-            // chExp
-            // 
-            this.chExp.HeaderText = "Exp";
-            this.chExp.Name = "chExp";
-            this.chExp.ReadOnly = true;
-            // 
-            // chHeight
-            // 
-            this.chHeight.HeaderText = "Height";
-            this.chHeight.Name = "chHeight";
-            this.chHeight.ReadOnly = true;
-            // 
-            // chWeight
-            // 
-            this.chWeight.HeaderText = "Weight";
-            this.chWeight.Name = "chWeight";
-            this.chWeight.ReadOnly = true;
+            this.TypeDataGridView.Location = new System.Drawing.Point(3, 109);
+            this.TypeDataGridView.Name = "TypeDataGridView";
+            this.TypeDataGridView.ReadOnly = true;
+            this.TypeDataGridView.Size = new System.Drawing.Size(1266, 680);
+            this.TypeDataGridView.TabIndex = 2;
             // 
             // TypeSearchButton
             // 
@@ -631,6 +603,36 @@
             this.warningLable2.Size = new System.Drawing.Size(0, 16);
             this.warningLable2.TabIndex = 2;
             // 
+            // chPokeImage
+            // 
+            this.chPokeImage.HeaderText = "Pokémon";
+            this.chPokeImage.Name = "chPokeImage";
+            this.chPokeImage.ReadOnly = true;
+            // 
+            // chName
+            // 
+            this.chName.HeaderText = "Name";
+            this.chName.Name = "chName";
+            this.chName.ReadOnly = true;
+            // 
+            // chExp
+            // 
+            this.chExp.HeaderText = "Exp";
+            this.chExp.Name = "chExp";
+            this.chExp.ReadOnly = true;
+            // 
+            // chHeight
+            // 
+            this.chHeight.HeaderText = "Height";
+            this.chHeight.Name = "chHeight";
+            this.chHeight.ReadOnly = true;
+            // 
+            // chWeight
+            // 
+            this.chWeight.HeaderText = "Weight";
+            this.chWeight.Name = "chWeight";
+            this.chWeight.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,7 +663,7 @@
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeDataGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -715,16 +717,16 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewImageColumn Image;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chName;
+        private System.Windows.Forms.DataGridView TypeDataGridView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button TypeSearchButton;
         private System.Windows.Forms.TextBox TypeSearchTextBox;
+        private System.Windows.Forms.Label warningLable2;
+        private System.Windows.Forms.DataGridViewImageColumn chPokeImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chName;
         private System.Windows.Forms.DataGridViewTextBoxColumn chExp;
         private System.Windows.Forms.DataGridViewTextBoxColumn chHeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn chWeight;
-        private System.Windows.Forms.Label warningLable2;
     }
 }
 

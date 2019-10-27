@@ -8,5 +8,10 @@ namespace Pokedex
 {
     class Types
     {
+        public string ImageUrl { get; set; }
+        public string Name { get; set; }
+        public int Exp { get; set; }
+        public int Height { get; set; }
+        public int Weight { get; set; }
     }
 }

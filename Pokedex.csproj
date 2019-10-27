@@ -72,6 +72,7 @@
     <Compile Include="JSON convertion classes\Move.cs" />
     <Compile Include="JSON convertion classes\MoveInfo.cs" />
     <Compile Include="Moves.cs" />
+    <Compile Include="PokeInfo.cs" />
     <Compile Include="PokemonContainer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

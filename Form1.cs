@@ -142,7 +142,7 @@ namespace Pokedex
             foreach (PokemonContainer p in type.pokemon)
             {
                 string[] url = p.pokemon.url.Split('/');
-                request = new RestRequest("pokemon/" + url[6]);
+                request = new RestRequest("pokemon/" + p.pokemon.name);
                 response = client.Get(request);
                 poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
                 list.Add(new Types() { ImageUrl = p.pokemon.url, Name = p.pokemon.name, Exp = poke.base_experience, Height = poke.height, Weight = poke.weight });

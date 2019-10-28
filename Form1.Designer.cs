@@ -59,6 +59,7 @@
             this.chFlingPower = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.listView3 = new System.Windows.Forms.ListView();
+            this.chLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.MoveListView = new System.Windows.Forms.ListView();
@@ -66,18 +67,17 @@
             this.chPowerPoint = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEffect = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.chLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.TypeDataGridView = new System.Windows.Forms.DataGridView();
-            this.TypeSearchButton = new System.Windows.Forms.Button();
-            this.TypeSearchTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.warningLable2 = new System.Windows.Forms.Label();
+            this.TypeSearchButton = new System.Windows.Forms.Button();
+            this.TypeSearchTextBox = new System.Windows.Forms.TextBox();
+            this.TypeDataGridView = new System.Windows.Forms.DataGridView();
             this.chPokeImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.chName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,14 +91,14 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TypeDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel3
@@ -110,7 +110,7 @@
             this.flowLayoutPanel3.Controls.Add(this.typeLable);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(261, 76);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(259, 76);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(236, 220);
             this.flowLayoutPanel3.TabIndex = 8;
@@ -171,7 +171,7 @@
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Controls.Add(this.AbilityListView);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(261, 302);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(259, 302);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(236, 469);
             this.flowLayoutPanel2.TabIndex = 6;
@@ -225,7 +225,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(26, 302);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(229, 469);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(227, 469);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // label1
@@ -273,7 +273,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(26, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(229, 67);
+            this.panel1.Size = new System.Drawing.Size(227, 67);
             this.panel1.TabIndex = 1;
             // 
             // warnngLable
@@ -326,7 +326,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.85366F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 242F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 523F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 525F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 2, 2);
@@ -352,7 +352,7 @@
             this.flowLayoutPanel4.Controls.Add(this.label4);
             this.flowLayoutPanel4.Controls.Add(this.listView3);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(503, 302);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(501, 302);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(246, 469);
             this.flowLayoutPanel4.TabIndex = 10;
@@ -423,14 +423,19 @@
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
             // 
+            // chLocation
+            // 
+            this.chLocation.Text = "Location";
+            this.chLocation.Width = 236;
+            // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Controls.Add(this.label5);
             this.flowLayoutPanel5.Controls.Add(this.MoveListView);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(755, 302);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(753, 302);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(518, 469);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(520, 469);
             this.flowLayoutPanel5.TabIndex = 11;
             // 
             // label5
@@ -456,7 +461,9 @@
             this.MoveListView.HideSelection = false;
             this.MoveListView.Location = new System.Drawing.Point(3, 42);
             this.MoveListView.Name = "MoveListView";
+            this.MoveListView.ShowItemToolTips = true;
             this.MoveListView.Size = new System.Drawing.Size(505, 424);
+            this.MoveListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.MoveListView.TabIndex = 9;
             this.MoveListView.UseCompatibleStateImageBehavior = false;
             this.MoveListView.View = System.Windows.Forms.View.Details;
@@ -479,6 +486,15 @@
             // 
             this.chEffect.Text = "Effect";
             this.chEffect.Width = 260;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.pokemonImage);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(26, 76);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(227, 220);
+            this.flowLayoutPanel6.TabIndex = 12;
             // 
             // tabControl1
             // 
@@ -514,20 +530,6 @@
             this.tabPage2.Text = "Type Search";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.pokemonImage);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(26, 76);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(229, 220);
-            this.flowLayoutPanel6.TabIndex = 12;
-            // 
-            // chLocation
-            // 
-            this.chLocation.Text = "Location";
-            this.chLocation.Width = 236;
-            // 
             // flowLayoutPanel7
             // 
             this.flowLayoutPanel7.Controls.Add(this.flowLayoutPanel8);
@@ -548,42 +550,6 @@
             this.flowLayoutPanel8.Size = new System.Drawing.Size(1268, 100);
             this.flowLayoutPanel8.TabIndex = 1;
             // 
-            // TypeDataGridView
-            // 
-            this.TypeDataGridView.AllowUserToAddRows = false;
-            this.TypeDataGridView.AllowUserToDeleteRows = false;
-            this.TypeDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.TypeDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.TypeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TypeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chPokeImage,
-            this.chName,
-            this.chExp,
-            this.chHeight,
-            this.chWeight});
-            this.TypeDataGridView.Location = new System.Drawing.Point(3, 109);
-            this.TypeDataGridView.Name = "TypeDataGridView";
-            this.TypeDataGridView.ReadOnly = true;
-            this.TypeDataGridView.Size = new System.Drawing.Size(1266, 680);
-            this.TypeDataGridView.TabIndex = 2;
-            // 
-            // TypeSearchButton
-            // 
-            this.TypeSearchButton.Location = new System.Drawing.Point(2, 36);
-            this.TypeSearchButton.Name = "TypeSearchButton";
-            this.TypeSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.TypeSearchButton.TabIndex = 0;
-            this.TypeSearchButton.Text = "Search";
-            this.TypeSearchButton.UseVisualStyleBackColor = true;
-            this.TypeSearchButton.Click += new System.EventHandler(this.TypeSearchButton_Click);
-            // 
-            // TypeSearchTextBox
-            // 
-            this.TypeSearchTextBox.Location = new System.Drawing.Point(83, 37);
-            this.TypeSearchTextBox.Name = "TypeSearchTextBox";
-            this.TypeSearchTextBox.Size = new System.Drawing.Size(114, 22);
-            this.TypeSearchTextBox.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.warningLable2);
@@ -602,6 +568,42 @@
             this.warningLable2.Name = "warningLable2";
             this.warningLable2.Size = new System.Drawing.Size(0, 16);
             this.warningLable2.TabIndex = 2;
+            // 
+            // TypeSearchButton
+            // 
+            this.TypeSearchButton.Location = new System.Drawing.Point(2, 36);
+            this.TypeSearchButton.Name = "TypeSearchButton";
+            this.TypeSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.TypeSearchButton.TabIndex = 0;
+            this.TypeSearchButton.Text = "Search";
+            this.TypeSearchButton.UseVisualStyleBackColor = true;
+            this.TypeSearchButton.Click += new System.EventHandler(this.TypeSearchButton_Click);
+            // 
+            // TypeSearchTextBox
+            // 
+            this.TypeSearchTextBox.Location = new System.Drawing.Point(83, 37);
+            this.TypeSearchTextBox.Name = "TypeSearchTextBox";
+            this.TypeSearchTextBox.Size = new System.Drawing.Size(114, 22);
+            this.TypeSearchTextBox.TabIndex = 1;
+            // 
+            // TypeDataGridView
+            // 
+            this.TypeDataGridView.AllowUserToAddRows = false;
+            this.TypeDataGridView.AllowUserToDeleteRows = false;
+            this.TypeDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.TypeDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.TypeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TypeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chPokeImage,
+            this.chName,
+            this.chExp,
+            this.chHeight,
+            this.chWeight});
+            this.TypeDataGridView.Location = new System.Drawing.Point(3, 109);
+            this.TypeDataGridView.Name = "TypeDataGridView";
+            this.TypeDataGridView.ReadOnly = true;
+            this.TypeDataGridView.Size = new System.Drawing.Size(1266, 680);
+            this.TypeDataGridView.TabIndex = 2;
             // 
             // chPokeImage
             // 
@@ -657,15 +659,15 @@
             this.flowLayoutPanel4.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            this.flowLayoutPanel6.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TypeDataGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

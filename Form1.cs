@@ -31,15 +31,17 @@ namespace Pokedex
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            request = new RestRequest("pokemon/" + searchTextBox.Text.ToLower());
-            response = client.Get(request);
-
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 1000;
 
-            if (searchTextBox.Text.Any(x => !char.IsLetter(x)))
+            if (searchTextBox.Text.Any(x => !char.IsLetter(x)) || searchTextBox.Text == null)
             {
                 return;
+            }
+            else
+            {
+                request = new RestRequest("pokemon/" + searchTextBox.Text.ToLower());
+                response = client.Get(request);
             }
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -57,7 +59,7 @@ namespace Pokedex
             var items = GetItemList();
             var moves = GetMoveList();
 
-            pokemonName.Text = poke.name;
+            pokemonName.Text = NameToUpper(poke.name);
             heightLable.Text = "Height: " + poke.height.ToString();
             expLable.Text = "Exp: " + poke.base_experience.ToString();
             progressBar1.Value = poke.base_experience;
@@ -66,7 +68,7 @@ namespace Pokedex
 
             StatListView.Items.Clear();
 
-            foreach(var s in stats)
+            foreach (var s in stats)
             {
                 var listRow = new string[] { s.statName, s.statValue.ToString() };
                 var listItem = new ListViewItem(listRow);
@@ -77,7 +79,7 @@ namespace Pokedex
 
             AbilityListView.Items.Clear();
 
-            foreach(var a in abilities)
+            foreach (var a in abilities)
             {
                 var listRow = new string[] { a.abilityName, a.abilityHidden.ToString(), a.abilitySlot.ToString() };
                 var listItem = new ListViewItem(listRow);
@@ -161,7 +163,7 @@ namespace Pokedex
                 request = new RestRequest("move/" + url[6]);
                 response = client.Get(request);
                 moveInfo = JsonConvert.DeserializeObject<MoveInfo>(response.Content);
-                list.Add(new Moves() { moveName = m.move.name, moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
+                list.Add(new Moves() { moveName = NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
             }
 
             return list;
@@ -177,7 +179,7 @@ namespace Pokedex
                 request = new RestRequest("item/" + url[6]);
                 response = client.Get(request);
                 itemInfo = JsonConvert.DeserializeObject<ItemInfo>(response.Content);
-                list.Add(new Items() { itemName = h.item.name, itemCost = itemInfo.cost, itemFlingPower = itemInfo.fling_power });
+                list.Add(new Items() { itemName = NameToUpper(h.item.name), itemCost = itemInfo.cost, itemFlingPower = itemInfo.fling_power });
             }
 
             return list;
@@ -189,7 +191,7 @@ namespace Pokedex
 
             foreach (AbilityContainer a in poke.abilities)
             {
-                list.Add(new Abilities() { abilityName = a.ability.name, abilityHidden = a.is_hidden, abilitySlot = a.slot });
+                list.Add(new Abilities() { abilityName = NameToUpper(a.ability.name), abilityHidden = a.is_hidden, abilitySlot = a.slot });
             }
 
             return list;
@@ -201,13 +203,13 @@ namespace Pokedex
 
             foreach (StatContainer s in poke.stats)
             {
-                list.Add(new Stats() { statName = s.stat.name, statValue = s.base_stat });
+                list.Add(new Stats() { statName = NameToUpper(s.stat.name), statValue = s.base_stat });
             }
 
             return list;
         }
 
-        /*static string NameToUpper(string name)
+        static string NameToUpper(string name)
         {
             List<string> split = new List<string>() { };
 
@@ -215,24 +217,27 @@ namespace Pokedex
             string upper;
             string lower;
             string result = "";
-            string nameCaps;
+            string nameCaps = "";
 
-            if (name.Contains("-"))
+            if (name.Contains(" ") || name.Contains('-'))
             {
-                name.Replace("-", " ");
-            }
+                string[] stringSplit = null;
 
-            if (name.Contains(" ") == true)
-            {
-                string[] stringSplit = name.Split(' ');
+                if (name.Contains(" "))
+                {
+                    stringSplit = name.Split(' ');
+                }
+                else if (name.Contains('-'))
+                {
+                    stringSplit = name.Split('-');
+                }
 
                 foreach (string x in stringSplit)
                 {
                     first = x[0];
                     lower = first.ToString();
-                    upper = first.ToString();
-                    upper = upper.ToUpper();
-                    nameCaps = x.Replace(lower, upper);
+                    upper = first.ToString().ToUpper();
+                    nameCaps = upper + x.Remove(0, 1);
                     split.Add(nameCaps);
                 }
 
@@ -242,12 +247,12 @@ namespace Pokedex
             {
                 first = name[0];
                 lower = first.ToString();
-                upper = first.ToString();
-                upper = upper.ToUpper();
-                result = name.Replace(lower, upper);
+                upper = first.ToString().ToUpper();
+                result = upper + name.Remove(0, 1);
             }
 
             return result;
-        }*/
+        }
+
     }
 }

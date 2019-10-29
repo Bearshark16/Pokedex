@@ -8,16 +8,16 @@ namespace Pokedex
 {
     class Pokemon
     {
-        public AbilityContainer[] abilities;
-        public int base_experience;
-        public int height;
-        public HeldItems[] held_items;
-        public MoveContainer[] moves;
-        public string name;
-        public StatContainer[] stats;
-        public Sprites sprites;
-        public TypeContainer[] types;
-        public int weight;
-        public string url;
+        public AbilityContainer[] abilities { get; set; }
+        public int base_experience { get; set; }
+        public int height { get; set; }
+        public HeldItems[] held_items { get; set; }
+        public MoveContainer[] moves { get; set; }
+        public string name { get; set; }
+        public StatContainer[] stats { get; set; }
+        public Sprites sprites { get; set; }
+        public TypeContainer[] types { get; set; }
+        public int weight { get; set; }
+        public string url { get; set; }
     }
 }

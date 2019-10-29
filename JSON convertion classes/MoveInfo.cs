@@ -10,6 +10,7 @@ namespace Pokedex
     {
         public int pp;
         public Type type;
+        //public float effect_chance;
         public EffectContainer[] effect_entries;
     }
 }

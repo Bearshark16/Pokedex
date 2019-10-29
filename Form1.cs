@@ -209,6 +209,15 @@ namespace Pokedex
             return list;
         }
 
+        private string GetEffectChance(string effect, int effect_chance)
+        {
+            string result;
+
+            result = effect.Replace("$effect_chance", effect_chance.ToString());
+
+            return result;
+        }
+
         static string NameToUpper(string name)
         {
             List<string> split = new List<string>() { };

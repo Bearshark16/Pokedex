@@ -258,12 +258,12 @@
             // statHeader
             // 
             this.statHeader.Text = "Stat";
-            this.statHeader.Width = 110;
+            this.statHeader.Width = 145;
             // 
             // statValueHeader
             // 
             this.statValueHeader.Text = "Value";
-            this.statValueHeader.Width = 108;
+            this.statValueHeader.Width = 70;
             // 
             // panel1
             // 

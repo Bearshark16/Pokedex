@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProtoBuf;
 
 namespace Pokedex
 {
@@ -32,7 +33,7 @@ namespace Pokedex
         private void searchButton_Click(object sender, EventArgs e)
         {
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = 1000;
+            progressBar1.Maximum = 500;
 
             if (searchTextBox.Text.Any(x => !char.IsLetter(x)) || searchTextBox.Text == null)
             {
@@ -44,6 +45,10 @@ namespace Pokedex
                 response = client.Get(request);
             }
 
+            // if the status code of the api response is not "OK" a message is displayed
+            // else the the lable used for the error message will be set to null and the 
+            // JSON will be deseriliazed and placed in the apropriet variables
+
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 warnngLable.Text = "Pokémon does not exist!";
@@ -54,10 +59,14 @@ namespace Pokedex
                 poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
             }
 
+            // Retrives lists of objects containing information for the listViews in the windows form.
+
             var stats = GetStatList();
             var abilities = GetAbilityList();
             var items = GetItemList();
             var moves = GetMoveList();
+
+            // Populates the lables, pictureboxes and progressbar with info retrived form the api request.
 
             pokemonName.Text = NameToUpper(poke.name);
             heightLable.Text = "Height: " + poke.height.ToString();
@@ -65,6 +74,8 @@ namespace Pokedex
             progressBar1.Value = poke.base_experience;
             typeLable.Text = "Type: " + poke.types[0].type.name;
             pokemonImage.ImageLocation = poke.sprites.front_default;
+
+
 
             StatListView.Items.Clear();
 
@@ -109,7 +120,6 @@ namespace Pokedex
 
                 MoveListView.Items.Add(listItem);
             }
-
         }
 
         private void TypeSearchButton_Click(object sender, EventArgs e)

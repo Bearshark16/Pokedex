@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pokedex
 {
-    internal class Stats
+    internal class Stats : Upper
     {
         public string statName { get; set; }
         public int statValue { get; set; }

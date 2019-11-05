@@ -1,6 +1,6 @@
 ﻿namespace Pokedex
 {
-    partial class Form1
+    partial class Pokedex
     {
         /// <summary>
         /// Required designer variable.

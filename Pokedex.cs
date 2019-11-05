@@ -14,9 +14,9 @@ using ProtoBuf;
 
 namespace Pokedex
 {
-    public partial class Form1 : Form
+    public partial class Pokedex : Form
     {
-        public Form1()
+        public Pokedex()
         {
             InitializeComponent();
         }
@@ -29,6 +29,7 @@ namespace Pokedex
         ItemInfo itemInfo;
         MoveInfo moveInfo;
         TypeInfo type;
+        Lists lists;
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -61,10 +62,12 @@ namespace Pokedex
 
             // Retrives lists of objects containing information for the listViews in the windows form.
 
-            var stats = GetStatList();
-            var abilities = GetAbilityList();
-            var items = GetItemList();
-            var moves = GetMoveList();
+            lists = new Lists(poke);
+
+            var stats = lists.GetStats;
+            var abilities = lists.GetAbilities;
+            var items = lists.GetItems;
+            var moves = lists.GetMoves; 
 
             // Populates the lables, pictureboxes and progressbar with info retrived form the api request.
 
@@ -74,8 +77,6 @@ namespace Pokedex
             progressBar1.Value = poke.base_experience;
             typeLable.Text = "Type: " + poke.types[0].type.name;
             pokemonImage.ImageLocation = poke.sprites.front_default;
-
-
 
             StatListView.Items.Clear();
 
@@ -163,62 +164,6 @@ namespace Pokedex
             return list;
         }
 
-        private List<Moves> GetMoveList()
-        {
-            var list = new List<Moves>();
-
-            foreach (MoveContainer m in poke.moves)
-            {
-                string[] url = m.move.url.Split('/');
-                request = new RestRequest("move/" + url[6]);
-                response = client.Get(request);
-                moveInfo = JsonConvert.DeserializeObject<MoveInfo>(response.Content);
-                list.Add(new Moves() { moveName = NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
-            }
-
-            return list;
-        }
-
-        private List<Items> GetItemList()
-        {
-            var list = new List<Items>();
-
-            foreach (HeldItems h in poke.held_items)
-            {
-                string[] url = h.item.url.Split('/');
-                request = new RestRequest("item/" + url[6]);
-                response = client.Get(request);
-                itemInfo = JsonConvert.DeserializeObject<ItemInfo>(response.Content);
-                list.Add(new Items() { itemName = NameToUpper(h.item.name), itemCost = itemInfo.cost, itemFlingPower = itemInfo.fling_power });
-            }
-
-            return list;
-        }
-
-        private List<Abilities> GetAbilityList()
-        {
-            var list = new List<Abilities>();
-
-            foreach (AbilityContainer a in poke.abilities)
-            {
-                list.Add(new Abilities() { abilityName = NameToUpper(a.ability.name), abilityHidden = a.is_hidden, abilitySlot = a.slot });
-            }
-
-            return list;
-        }
-
-        private List<Stats> GetStatList()
-        {
-            var list = new List<Stats>();
-
-            foreach (StatContainer s in poke.stats)
-            {
-                list.Add(new Stats() { statName = NameToUpper(s.stat.name), statValue = s.base_stat });
-            }
-
-            return list;
-        }
-
         private string GetEffectChance(string effect, int effect_chance)
         {
             string result;
@@ -228,7 +173,7 @@ namespace Pokedex
             return result;
         }
 
-        static string NameToUpper(string name)
+        public static string NameToUpper(string name)
         {
             List<string> split = new List<string>() { };
 

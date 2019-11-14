@@ -83,6 +83,8 @@
             this.chExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.APITime = new System.Windows.Forms.Label();
+            this.PrintTime = new System.Windows.Forms.Label();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -110,9 +112,9 @@
             this.flowLayoutPanel3.Controls.Add(this.typeLable);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(259, 76);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(260, 76);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(236, 220);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(233, 220);
             this.flowLayoutPanel3.TabIndex = 8;
             // 
             // pokemonName
@@ -171,9 +173,9 @@
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Controls.Add(this.AbilityListView);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(259, 302);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(260, 302);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(236, 469);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(233, 469);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // label2
@@ -225,7 +227,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(26, 302);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(227, 469);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(228, 469);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // label1
@@ -273,7 +275,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(26, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 67);
+            this.panel1.Size = new System.Drawing.Size(228, 67);
             this.panel1.TabIndex = 1;
             // 
             // warnngLable
@@ -324,9 +326,9 @@
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.146341F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.85366F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 242F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 525F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 527F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 2, 2);
@@ -334,6 +336,8 @@
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel4, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel5, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel6, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.APITime, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.PrintTime, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -352,7 +356,7 @@
             this.flowLayoutPanel4.Controls.Add(this.label4);
             this.flowLayoutPanel4.Controls.Add(this.listView3);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(501, 302);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(499, 302);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(246, 469);
             this.flowLayoutPanel4.TabIndex = 10;
@@ -433,9 +437,9 @@
             this.flowLayoutPanel5.Controls.Add(this.label5);
             this.flowLayoutPanel5.Controls.Add(this.MoveListView);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(753, 302);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(751, 302);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(520, 469);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(522, 469);
             this.flowLayoutPanel5.TabIndex = 11;
             // 
             // label5
@@ -493,7 +497,7 @@
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(26, 76);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(227, 220);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(228, 220);
             this.flowLayoutPanel6.TabIndex = 12;
             // 
             // tabControl1
@@ -635,7 +639,25 @@
             this.chWeight.Name = "chWeight";
             this.chWeight.ReadOnly = true;
             // 
-            // Form1
+            // APITime
+            // 
+            this.APITime.AutoSize = true;
+            this.APITime.Location = new System.Drawing.Point(499, 73);
+            this.APITime.Name = "APITime";
+            this.APITime.Size = new System.Drawing.Size(105, 16);
+            this.APITime.TabIndex = 13;
+            this.APITime.Text = "API request time";
+            // 
+            // PrintTime
+            // 
+            this.PrintTime.AutoSize = true;
+            this.PrintTime.Location = new System.Drawing.Point(499, 0);
+            this.PrintTime.Name = "PrintTime";
+            this.PrintTime.Size = new System.Drawing.Size(62, 16);
+            this.PrintTime.TabIndex = 14;
+            this.PrintTime.Text = "Print time";
+            // 
+            // Pokedex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -643,7 +665,7 @@
             this.ClientSize = new System.Drawing.Size(1290, 829);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.Name = "Pokedex";
             this.Text = "Pokédex";
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
@@ -655,6 +677,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonImage)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
@@ -729,6 +752,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chExp;
         private System.Windows.Forms.DataGridViewTextBoxColumn chHeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn chWeight;
+        private System.Windows.Forms.Label APITime;
+        private System.Windows.Forms.Label PrintTime;
     }
 }
 

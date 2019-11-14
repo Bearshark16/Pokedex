@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pokedex
 {
-    class Lists
+    class List
     {
         #region RestSharp
         RestClient client = new RestClient("https://pokeapi.co/api/v2/");
@@ -36,7 +36,7 @@ namespace Pokedex
         public List<Moves> GetMoves { get { return moves; } private set { } }
         #endregion
 
-        public Lists(Pokemon poke) // A constructor that sets the lists when instantiated
+        public List(Pokemon poke) // A constructor that sets the lists when instantiated
         {
             stats = GetStatList(poke);
             abilities = GetAbilityList(poke);

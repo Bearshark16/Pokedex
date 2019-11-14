@@ -10,7 +10,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProtoBuf;
 
 namespace Pokedex
 {
@@ -26,15 +25,18 @@ namespace Pokedex
         IRestResponse response;
 
         Pokemon poke;
-        ItemInfo itemInfo;
-        MoveInfo moveInfo;
         TypeInfo type;
-        Lists lists;
+        List lists;
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            var watch = new System.Diagnostics.Stopwatch();
+            var watch2 = new System.Diagnostics.Stopwatch();
+
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 500;
+
+            watch.Start();
 
             if (searchTextBox.Text.Any(x => !char.IsLetter(x)) || searchTextBox.Text == null)
             {
@@ -60,17 +62,23 @@ namespace Pokedex
                 poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
             }
 
-            // Retrives lists of objects containing information for the listViews in the windows form.
+            /* Retrives lists of objects containing information for the listViews in the windows form 
+             * and makes secondary api requests for additional information if nessecary. */
 
-            lists = new Lists(poke);
+            lists = new List(poke);
 
             var stats = lists.GetStats;
             var abilities = lists.GetAbilities;
             var items = lists.GetItems;
-            var moves = lists.GetMoves; 
+            var moves = lists.GetMoves;
+
+            watch.Stop();
 
             // Populates the lables, pictureboxes and progressbar with info retrived form the api request.
 
+            watch2.Start();
+
+            APITime.Text = "Instantiation: " + $"Execution Time: {watch.ElapsedMilliseconds / 1000} sec";
             pokemonName.Text = NameToUpper(poke.name);
             heightLable.Text = "Height: " + poke.height.ToString();
             expLable.Text = "Exp: " + poke.base_experience.ToString();
@@ -121,6 +129,10 @@ namespace Pokedex
 
                 MoveListView.Items.Add(listItem);
             }
+
+            watch2.Stop();
+
+            PrintTime.Text = "Printing: " + $"Execution Time: {watch2.ElapsedMilliseconds / 1000} sec";
         }
 
         private void TypeSearchButton_Click(object sender, EventArgs e)
@@ -164,14 +176,14 @@ namespace Pokedex
             return list;
         }
 
-        private string GetEffectChance(string effect, int effect_chance)
+        /*private string GetEffectChance(string effect, int effect_chance)
         {
             string result;
 
             result = effect.Replace("$effect_chance", effect_chance.ToString());
 
             return result;
-        }
+        }*/
 
         public static string NameToUpper(string name)
         {
@@ -217,6 +229,5 @@ namespace Pokedex
 
             return result;
         }
-
     }
 }

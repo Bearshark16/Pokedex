@@ -26,12 +26,6 @@ namespace Pokedex
         public string front_default { get; set; }
     }
 
-    class NameAndUrl
-    {
-        public virtual string name { get; set; }
-        public string url { get; set; }
-    }
-
     #region Abilities
     class AbilityContainer
     {
@@ -40,7 +34,10 @@ namespace Pokedex
         public int slot { get; set; }
     }
 
-    class Ability
+
+    /* A couple other classes looks identical to this one. 
+     * So those classes will inherit the proterties from this class */
+    class Ability 
     {
         public virtual string name { get; set; }
         public string url { get; set; }

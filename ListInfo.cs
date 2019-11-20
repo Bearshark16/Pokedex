@@ -4,27 +4,27 @@ using System.Text;
 
 namespace Pokedex
 {
-    internal class Stats
+    class Stats
     {
         public string statName { get; set; }
         public int statValue { get; set; }
     }
 
-    internal class Abilities
+    class Abilities
     {
         public string abilityName { get; set; }
         public bool abilityHidden { get; set; }
         public int abilitySlot { get; set; }
     }
 
-    internal class Items
+    class Items
     {
         public string itemName { get; set; }
         public int itemCost { get; set; }
         public int itemFlingPower { get; set; }
     }
 
-    internal class Moves
+    class Moves
     {
         public string moveName { get; set; }
         public int movePowerPoint { get; set; }

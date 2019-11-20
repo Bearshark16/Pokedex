@@ -26,6 +26,12 @@ namespace Pokedex
         public string front_default { get; set; }
     }
 
+    class NameAndUrl
+    {
+        public virtual string name { get; set; }
+        public string url { get; set; }
+    }
+
     #region Abilities
     class AbilityContainer
     {
@@ -36,7 +42,8 @@ namespace Pokedex
 
     class Ability
     {
-        public string name { get; set; }
+        public virtual string name { get; set; }
+        public string url { get; set; }
     }
     #endregion
 
@@ -47,9 +54,9 @@ namespace Pokedex
         public Stat stat { get; set; }
     }
 
-    class Stat
+    class Stat : Ability
     {
-        public string name { get; set; }
+        
     }
     #endregion
 
@@ -59,10 +66,9 @@ namespace Pokedex
         public Item item { get; set; }
     }
 
-    class Item
+    class Item : Ability
     {
-        public string name { get; set; }
-        public string url { get; set; }
+        
     }
 
     class ItemInfo
@@ -85,10 +91,9 @@ namespace Pokedex
         public Move move { get; set; }
     }
 
-    class Move
+    class Move : Ability
     {
-        public string name { get; set; }
-        public string url { get; set; }
+        
     }
 
     class EffectContainer

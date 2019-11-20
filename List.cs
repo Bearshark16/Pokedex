@@ -30,10 +30,34 @@ namespace Pokedex
 
         // Public properties that encapsulates the lists above 
 
-        public List<Stats> GetStats { get { return stats; } private set { } }
-        public List<Abilities> GetAbilities { get { return abilities; } private set { } }
-        public List<Items> GetItems { get { return items; } private set { } }
-        public List<Moves> GetMoves { get { return moves; } private set { } }
+        public List<Stats> GetStats {
+            get
+            {
+                return stats;
+            }
+            private set { } 
+        }
+        public List<Abilities> GetAbilities {
+            get
+            {
+                return abilities;
+            }
+            private set { }
+        }
+        public List<Items> GetItems {
+            get
+            {
+                return items;
+            }
+            private set { }
+        }
+        public List<Moves> GetMoves {
+            get
+            {
+                return moves;
+            }
+            private set { }
+        }
         #endregion
 
         public List(Pokemon poke) // A constructor that sets the lists when instantiated

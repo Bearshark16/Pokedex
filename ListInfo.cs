@@ -4,19 +4,6 @@ using System.Text;
 
 namespace Pokedex
 {
-    class Stats
-    {
-        public string statName { get; set; }
-        public int statValue { get; set; }
-    }
-
-    class Abilities
-    {
-        public string abilityName { get; set; }
-        public bool abilityHidden { get; set; }
-        public int abilitySlot { get; set; }
-    }
-
     class Items
     {
         public string itemName { get; set; }

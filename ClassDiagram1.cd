@@ -126,8 +126,8 @@
       <FileName>ClassModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pokedex.List">
-    <Position X="5.5" Y="5" Width="1.5" />
+  <Class Name="Pokedex.List" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAQAECQAAAAQAAQABwAAACAQACAAgAAAAAABAABAAE=</HashCode>
       <FileName>List.cs</FileName>

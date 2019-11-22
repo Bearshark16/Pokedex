@@ -34,9 +34,13 @@ namespace Pokedex
         public int slot { get; set; }
     }
 
-    class Ability
+
+    /* A couple other classes looks identical to this one. 
+     * So those classes will inherit the proterties from this class */
+    class Ability 
     {
-        public string name { get; set; }
+        public virtual string name { get; set; }
+        public string url { get; set; }
     }
     #endregion
 
@@ -47,9 +51,9 @@ namespace Pokedex
         public Stat stat { get; set; }
     }
 
-    class Stat
+    class Stat : Ability
     {
-        public string name { get; set; }
+        
     }
     #endregion
 
@@ -59,10 +63,9 @@ namespace Pokedex
         public Item item { get; set; }
     }
 
-    class Item
+    class Item : Ability
     {
-        public string name { get; set; }
-        public string url { get; set; }
+        
     }
 
     class ItemInfo
@@ -77,6 +80,7 @@ namespace Pokedex
     {
         public int pp { get; set; }
         public Type type { get; set; }
+        //public int effect_chance { get; set; }
         public EffectContainer[] effect_entries { get; set; }
     }
 
@@ -85,10 +89,9 @@ namespace Pokedex
         public Move move { get; set; }
     }
 
-    class Move
+    class Move : Ability
     {
-        public string name { get; set; }
-        public string url { get; set; }
+        
     }
 
     class EffectContainer

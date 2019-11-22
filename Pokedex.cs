@@ -64,14 +64,24 @@ namespace Pokedex
             }
 
             /* Retrives lists of objects containing information for the listViews in the windows form 
-             * and makes secondary api requests for additional information if nessecary. */
+             * and makes secondary api requests for additional information if nessecary. To get all the
+             * information i wanted for the items and moves a second api request was needed. I then took 
+             * the information from the two requests and placed them i one single class which is then used
+             * to create the list items. */
 
             lists = new List(poke);
 
-            var stats = lists.GetStats;
-            var abilities = lists.GetAbilities;
-            var items = lists.GetItems;
-            var moves = lists.GetMoves;
+            //var stats = lists.GetStats;
+            //var abilities = lists.GetAbilities;
+
+            List<Items> items = null;
+            List<Moves> moves = null;
+
+            if (poke != null)
+            {
+                items = lists.GetItems;
+                moves = lists.GetMoves;
+            }
 
             watch.Stop();
 
@@ -89,20 +99,23 @@ namespace Pokedex
 
             StatListView.Items.Clear();
 
-            foreach (var s in stats)
+            foreach (var s in poke.stats)
             {
-                var listRow = new string[] { s.statName, s.statValue.ToString() };
+                // An array containing the info in my chosen order
+                var listRow = new string[] { NameToUpper(s.stat.name), s.base_stat.ToString() };
+                // An instance of the ListViewItem class which uses an array of strings to represent the subitems in the listView. The array used is the one i made above 
                 var listItem = new ListViewItem(listRow);
                 listItem.Tag = s;
 
+                // Adds the ListViewItem to the ListView
                 StatListView.Items.Add(listItem);
             }
 
             AbilityListView.Items.Clear();
 
-            foreach (var a in abilities)
+            foreach (var a in poke.abilities)
             {
-                var listRow = new string[] { a.abilityName, a.abilityHidden.ToString(), a.abilitySlot.ToString() };
+                var listRow = new string[] { NameToUpper(a.ability.name), a.is_hidden.ToString(), a.slot.ToString() };
                 var listItem = new ListViewItem(listRow);
                 listItem.Tag = a;
 
@@ -177,15 +190,6 @@ namespace Pokedex
             return list;
         }
 
-        /*private string GetEffectChance(string effect, int effect_chance)
-        {
-            string result;
-
-            result = effect.Replace("$effect_chance", effect_chance.ToString());
-
-            return result;
-        }*/
-
         public static string NameToUpper(string name)
         {
             List<string> split = new List<string>() { };
@@ -193,9 +197,9 @@ namespace Pokedex
             char first;
             string upper;
             string lower;
-            string result = "";
             string nameCaps = "";
 
+            string result;
             if (name.Contains(" ") || name.Contains('-'))
             {
                 string[] stringSplit = null;
@@ -212,7 +216,6 @@ namespace Pokedex
                 foreach (string x in stringSplit)
                 {
                     first = x[0];
-                    lower = first.ToString();
                     upper = first.ToString().ToUpper();
                     nameCaps = upper + x.Remove(0, 1);
                     split.Add(nameCaps);
@@ -223,7 +226,6 @@ namespace Pokedex
             else
             {
                 first = name[0];
-                lower = first.ToString();
                 upper = first.ToString().ToUpper();
                 result = upper + name.Remove(0, 1);
             }

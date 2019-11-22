@@ -30,6 +30,7 @@ namespace Pokedex
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            // Too stop watches that that messures the two main parts of my code. The part that instantiates the classes and the part that prints the information contained within them
             var watch = new System.Diagnostics.Stopwatch();
             var watch2 = new System.Diagnostics.Stopwatch();
 

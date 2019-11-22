@@ -80,6 +80,7 @@ namespace Pokedex
     {
         public int pp { get; set; }
         public Type type { get; set; }
+        //public int effect_chance { get; set; }
         public EffectContainer[] effect_entries { get; set; }
     }
 

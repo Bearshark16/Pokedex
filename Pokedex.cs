@@ -102,7 +102,7 @@ namespace Pokedex
             {
                 // An array containing the info in my chosen order
                 var listRow = new string[] { NameToUpper(s.stat.name), s.base_stat.ToString() };
-                // An instance of the ListViewItem class which uses an array of strings to represent the subitems. The array used is the one i made above 
+                // An instance of the ListViewItem class which uses an array of strings to represent the subitems in the listView. The array used is the one i made above 
                 var listItem = new ListViewItem(listRow);
                 listItem.Tag = s;
 
@@ -189,15 +189,6 @@ namespace Pokedex
             return list;
         }
 
-        /*private string GetEffectChance(string effect, int effect_chance)
-        {
-            string result;
-
-            result = effect.Replace("$effect_chance", effect_chance.ToString());
-
-            return result;
-        }*/
-
         public static string NameToUpper(string name)
         {
             List<string> split = new List<string>() { };
@@ -205,9 +196,9 @@ namespace Pokedex
             char first;
             string upper;
             string lower;
-            string result = "";
             string nameCaps = "";
 
+            string result;
             if (name.Contains(" ") || name.Contains('-'))
             {
                 string[] stringSplit = null;
@@ -224,7 +215,6 @@ namespace Pokedex
                 foreach (string x in stringSplit)
                 {
                     first = x[0];
-                    lower = first.ToString();
                     upper = first.ToString().ToUpper();
                     nameCaps = upper + x.Remove(0, 1);
                     split.Add(nameCaps);
@@ -235,7 +225,6 @@ namespace Pokedex
             else
             {
                 first = name[0];
-                lower = first.ToString();
                 upper = first.ToString().ToUpper();
                 result = upper + name.Remove(0, 1);
             }

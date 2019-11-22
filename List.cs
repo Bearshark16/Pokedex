@@ -46,8 +46,11 @@ namespace Pokedex
 
         public List(Pokemon poke) // A constructor that sets the lists when instantiated
         {
-            items = GetItemList(poke);
-            moves = GetMoveList(poke);
+            if (poke != null)
+            {
+                items = GetItemList(poke);
+                moves = GetMoveList(poke);
+            }
         }
 
         // These methods return lists of objects used to populate the listViews
@@ -90,9 +93,27 @@ namespace Pokedex
                 response = client.Get(request);
                 moveInfo = JsonConvert.DeserializeObject<MoveInfo>(response.Content);
                 list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
+
+                /*if (moveInfo.effect_entries[0].effect.Contains("$effect_chance"))
+                {
+                    list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = GetEffectChance(moveInfo.effect_entries[0].effect, moveInfo.effect_chance), movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
+                }
+                else
+                {
+                    list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
+                }*/
             }
 
             return list;
+        }
+
+        private string GetEffectChance(string effect, int effect_chance)
+        {
+            string result;
+
+            result = effect.Replace("$effect_chance", effect_chance.ToString());
+
+            return result;
         }
     }
 }

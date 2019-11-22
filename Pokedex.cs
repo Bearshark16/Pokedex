@@ -190,16 +190,15 @@ namespace Pokedex
             return list;
         }
 
+        // A method that makes the first letters in names upper case
         public static string NameToUpper(string name)
         {
             List<string> split = new List<string>() { };
 
             char first;
             string upper;
-            string lower;
-            string nameCaps = "";
-
             string result;
+
             if (name.Contains(" ") || name.Contains('-'))
             {
                 string[] stringSplit = null;
@@ -217,7 +216,7 @@ namespace Pokedex
                 {
                     first = x[0];
                     upper = first.ToString().ToUpper();
-                    nameCaps = upper + x.Remove(0, 1);
+                    string nameCaps = upper + x.Remove(0, 1);
                     split.Add(nameCaps);
                 }
 

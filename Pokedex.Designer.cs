@@ -58,7 +58,7 @@
             this.chCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chFlingPower = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.locationListView = new System.Windows.Forms.ListView();
             this.chLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -112,7 +112,7 @@
             this.flowLayoutPanel3.Controls.Add(this.typeLable);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(259, 76);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(258, 76);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(233, 220);
             this.flowLayoutPanel3.TabIndex = 8;
@@ -173,7 +173,7 @@
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Controls.Add(this.AbilityListView);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(259, 302);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(258, 302);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(233, 469);
             this.flowLayoutPanel2.TabIndex = 6;
@@ -227,7 +227,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(26, 302);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(227, 469);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(226, 469);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // label1
@@ -275,7 +275,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(26, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 67);
+            this.panel1.Size = new System.Drawing.Size(226, 67);
             this.panel1.TabIndex = 1;
             // 
             // warnngLable
@@ -331,7 +331,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.85366F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 239F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 528F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 529F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 2, 2);
@@ -357,9 +357,9 @@
             this.flowLayoutPanel4.Controls.Add(this.label3);
             this.flowLayoutPanel4.Controls.Add(this.InventoryListView);
             this.flowLayoutPanel4.Controls.Add(this.label4);
-            this.flowLayoutPanel4.Controls.Add(this.listView3);
+            this.flowLayoutPanel4.Controls.Add(this.locationListView);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(498, 302);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(497, 302);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(246, 469);
             this.flowLayoutPanel4.TabIndex = 10;
@@ -416,19 +416,19 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Locations";
             // 
-            // listView3
+            // locationListView
             // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.locationListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chLocation});
-            this.listView3.FullRowSelect = true;
-            this.listView3.GridLines = true;
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(3, 262);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(240, 204);
-            this.listView3.TabIndex = 9;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.locationListView.FullRowSelect = true;
+            this.locationListView.GridLines = true;
+            this.locationListView.HideSelection = false;
+            this.locationListView.Location = new System.Drawing.Point(3, 262);
+            this.locationListView.Name = "locationListView";
+            this.locationListView.Size = new System.Drawing.Size(240, 204);
+            this.locationListView.TabIndex = 9;
+            this.locationListView.UseCompatibleStateImageBehavior = false;
+            this.locationListView.View = System.Windows.Forms.View.Details;
             // 
             // chLocation
             // 
@@ -440,9 +440,9 @@
             this.flowLayoutPanel5.Controls.Add(this.label5);
             this.flowLayoutPanel5.Controls.Add(this.MoveListView);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(750, 302);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(749, 302);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(523, 469);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(524, 469);
             this.flowLayoutPanel5.TabIndex = 11;
             // 
             // label5
@@ -500,13 +500,13 @@
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(26, 76);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(227, 220);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(226, 220);
             this.flowLayoutPanel6.TabIndex = 12;
             // 
             // APITime
             // 
             this.APITime.AutoSize = true;
-            this.APITime.Location = new System.Drawing.Point(498, 73);
+            this.APITime.Location = new System.Drawing.Point(497, 73);
             this.APITime.Name = "APITime";
             this.APITime.Size = new System.Drawing.Size(105, 16);
             this.APITime.TabIndex = 13;
@@ -515,7 +515,7 @@
             // PrintTime
             // 
             this.PrintTime.AutoSize = true;
-            this.PrintTime.Location = new System.Drawing.Point(498, 0);
+            this.PrintTime.Location = new System.Drawing.Point(497, 0);
             this.PrintTime.Name = "PrintTime";
             this.PrintTime.Size = new System.Drawing.Size(62, 16);
             this.PrintTime.TabIndex = 14;
@@ -732,7 +732,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView InventoryListView;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ListView locationListView;
         private System.Windows.Forms.ColumnHeader chItem;
         private System.Windows.Forms.ColumnHeader chCost;
         private System.Windows.Forms.ColumnHeader chFlingPower;

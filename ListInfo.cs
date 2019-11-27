@@ -27,4 +27,9 @@ namespace Pokedex
         public int Height { get; set; }
         public int Weight { get; set; }
     }
+
+    class EncounterArea
+    {
+        public string locationName { get; set; }
+    }
 }

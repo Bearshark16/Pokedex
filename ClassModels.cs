@@ -14,6 +14,7 @@ namespace Pokedex
         public HeldItems[] held_items { get; set; }
         public MoveContainer[] moves { get; set; }
         public string name { get; set; }
+        public string location_area_encounters { get; set; }
         public StatContainer[] stats { get; set; }
         public Sprites sprites { get; set; }
         public TypeContainer[] types { get; set; }
@@ -52,8 +53,7 @@ namespace Pokedex
     }
 
     class Stat : Ability
-    {
-        
+    {  
     }
     #endregion
 
@@ -90,14 +90,31 @@ namespace Pokedex
     }
 
     class Move : Ability
-    {
-        
+    { 
     }
 
     class EffectContainer
     {
         public string effect { get; set; }
     }
+    #endregion
+
+    #region Area Encounters
+
+    class Encounters
+    {
+         public AreaContainer[] encounterLocation { set; get; }
+    }
+
+    class AreaContainer
+    {
+        public Location location_area { get; set; }
+    }
+
+    class Location : Ability
+    {
+    }
+
     #endregion
 
     #region TypeSearch

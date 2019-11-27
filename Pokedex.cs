@@ -26,7 +26,7 @@ namespace Pokedex
 
         Pokemon poke;
         TypeInfo type;
-        List lists;
+        Lists lists;
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -69,18 +69,17 @@ namespace Pokedex
              * the information from the two requests and placed them i one single class which is then used
              * to create the list items. */
 
-            lists = new List(poke);
-
-            //var stats = lists.GetStats;
-            //var abilities = lists.GetAbilities;
+            lists = new Lists(poke);
 
             List<Items> items = null;
             List<Moves> moves = null;
+            List<EncounterArea> locations = null;
 
             if (poke != null)
             {
                 items = lists.GetItems;
                 moves = lists.GetMoves;
+                locations = lists.GetEncounterLocations;
             }
 
             watch.Stop();
@@ -143,6 +142,8 @@ namespace Pokedex
 
                 MoveListView.Items.Add(listItem);
             }
+
+            locationListView.Items.Clear();
 
             watch2.Stop();
 

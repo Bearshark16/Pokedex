@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pokedex
 {
-    class List
+    class Lists
     {
         #region RestSharp
         RestClient client = new RestClient("https://pokeapi.co/api/v2/");
@@ -18,38 +18,51 @@ namespace Pokedex
 
         private ItemInfo itemInfo;
         private MoveInfo moveInfo;
+        private Encounters encounterInfo;
 
         #region Lists
         private List<Items> items;
         private List<Moves> moves;
+        private List<EncounterArea> encounters;
         #endregion
 
         #region Properties 
 
         // Public properties that encapsulates the lists above 
 
-        public List<Items> GetItems {
+        public List<Items> GetItems
+        {
             get
             {
                 return items;
             }
             private set { }
         }
-        public List<Moves> GetMoves {
+        public List<Moves> GetMoves
+        {
             get
             {
                 return moves;
             }
             private set { }
         }
+        public List<EncounterArea> GetEncounterLocations
+        {
+            get
+            {
+                return encounters;
+            }
+            private set { }
+        }
         #endregion
 
-        public List(Pokemon poke) // A constructor that sets the lists when instantiated
+        public Lists(Pokemon poke) // A constructor that sets the lists when instantiated
         {
             if (poke != null)
             {
                 items = GetItemList(poke);
                 moves = GetMoveList(poke);
+                encounters = GetEcounterLocationList(poke);
             }
         }
 
@@ -94,14 +107,32 @@ namespace Pokedex
                 moveInfo = JsonConvert.DeserializeObject<MoveInfo>(response.Content);
                 list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
 
-                /*if (moveInfo.effect_entries[0].effect.Contains("$effect_chance"))
+                /*
+                if (moveInfo.effect_entries[0].effect.Contains("$effect_chance"))
                 {
                     list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = GetEffectChance(moveInfo.effect_entries[0].effect, moveInfo.effect_chance), movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
                 }
                 else
                 {
                     list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
-                }*/
+                }
+                */
+            }
+
+            return list;
+        }
+
+        private List<EncounterArea> GetEcounterLocationList(Pokemon poke)
+        {
+            var list = new List<EncounterArea>();
+
+            string[] url = poke.location_area_encounters.Split('/');
+            request = new RestRequest("pokemon/" + url[6] + "/" + url[7]);
+            response = client.Get(request);
+            encounterInfo = JsonConvert.DeserializeObject<Encounters>(response.Content);
+            foreach (AreaContainer a in encounterInfo.encounterLocation)
+            {
+                list.Add(new EncounterArea() { locationName = a.location_area.name });
             }
 
             return list;

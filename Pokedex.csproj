@@ -79,7 +79,7 @@
       <DependentUpon>Pokedex.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassModels.cs" />
-    <Compile Include="List.cs" />
+    <Compile Include="Lists.cs" />
     <Compile Include="NameToUpper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

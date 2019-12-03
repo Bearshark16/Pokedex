@@ -18,7 +18,7 @@ namespace Pokedex
 
         private ItemInfo itemInfo;
         private MoveInfo moveInfo;
-        private Encounters encounterInfo;
+        private Encounters[] encounterInfo;
 
         #region Lists
         private List<Items> items;
@@ -129,10 +129,10 @@ namespace Pokedex
             string[] url = poke.location_area_encounters.Split('/');
             request = new RestRequest("pokemon/" + url[6] + "/" + url[7]);
             response = client.Get(request);
-            encounterInfo = JsonConvert.DeserializeObject<Encounters>(response.Content);
-            foreach (AreaContainer a in encounterInfo.encounterLocation)
+            encounterInfo = JsonConvert.DeserializeObject<Encounters[]>(response.Content);
+            foreach (Encounters e in encounterInfo)
             {
-                list.Add(new EncounterArea() { locationName = a.location_area.name });
+                list.Add(new EncounterArea() { locationName = Pokedex.NameToUpper(e.location_area.name) });
             }
 
             return list;

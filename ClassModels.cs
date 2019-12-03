@@ -38,7 +38,7 @@ namespace Pokedex
 
     /* A couple other classes looks identical to this one. 
      * So those classes will inherit the proterties from this class */
-    class Ability 
+    class Ability
     {
         public virtual string name { get; set; }
         public string url { get; set; }
@@ -53,7 +53,7 @@ namespace Pokedex
     }
 
     class Stat : Ability
-    {  
+    {
     }
     #endregion
 
@@ -65,7 +65,7 @@ namespace Pokedex
 
     class Item : Ability
     {
-        
+
     }
 
     class ItemInfo
@@ -90,7 +90,7 @@ namespace Pokedex
     }
 
     class Move : Ability
-    { 
+    {
     }
 
     class EffectContainer
@@ -103,7 +103,7 @@ namespace Pokedex
 
     class Encounters
     {
-         public AreaContainer[] encounterLocation { set; get; }
+        public Location location_area { get; set; }
     }
 
     class AreaContainer

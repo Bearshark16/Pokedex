@@ -145,6 +145,15 @@ namespace Pokedex
 
             locationListView.Items.Clear();
 
+            foreach (var l in locations)
+            {
+                var listRow = new string[] { l.locationName };
+                var listItem = new ListViewItem(listRow);
+                listItem.Tag = l;
+
+                locationListView.Items.Add(listItem);
+            }
+
             watch2.Stop();
 
             PrintTime.Text = "Printing: " + $"Execution Time: {watch2.ElapsedMilliseconds / 1000} sec";

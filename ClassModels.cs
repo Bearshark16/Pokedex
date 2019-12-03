@@ -101,12 +101,7 @@ namespace Pokedex
 
     #region Area Encounters
 
-    class Encounters
-    {
-        public Location location_area { get; set; }
-    }
-
-    class AreaContainer
+    class Encounter
     {
         public Location location_area { get; set; }
     }

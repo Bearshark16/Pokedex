@@ -19,6 +19,12 @@ namespace Pokedex
         public string moveEffect { get; set; }
     }
 
+    class AbilityPrint
+    {
+        public string abilityName { get; set; }
+        public string abilityEffect { get; set; }
+    }
+
     class Types
     {
         public string ImageUrl { get; set; }

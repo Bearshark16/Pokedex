@@ -18,11 +18,13 @@ namespace Pokedex
 
         private ItemInfo itemInfo;
         private MoveInfo moveInfo;
+        private AbilityInfo abilityInfo;
         private Encounter[] encounterInfo;
 
         #region Lists
         private List<Items> items;
         private List<Moves> moves;
+        private List<AbilityPrint> abilityPrints;
         private List<EncounterArea> encounters;
         #endregion
 
@@ -54,6 +56,14 @@ namespace Pokedex
             }
             private set { }
         }
+        public List<AbilityPrint> GetAbilities
+        {
+            get
+            {
+                return abilityPrints;
+            }
+            private set { }
+        }
         #endregion
 
         public Lists(Pokemon poke) // A constructor that sets the lists when instantiated
@@ -62,6 +72,7 @@ namespace Pokedex
             {
                 items = GetItemList(poke);
                 moves = GetMoveList(poke);
+                abilityPrints = GetAbilityList(poke);
                 encounters = GetEcounterLocationList(poke);
             }
         }
@@ -117,6 +128,22 @@ namespace Pokedex
                     list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
                 }
                 */
+            }
+
+            return list;
+        }
+
+        private List<AbilityPrint> GetAbilityList(Pokemon poke)
+        {
+            var list = new List<AbilityPrint>();
+
+            foreach (AbilityContainer a in poke.abilities)
+            {
+                string[] url = a.ability.url.Split('/');
+                request = new RestRequest("ability/" + url[6]);
+                response = client.Get(request);
+                abilityInfo = JsonConvert.DeserializeObject<AbilityInfo>(response.Content);
+                list.Add(new AbilityPrint() { abilityName = Pokedex.NameToUpper(a.ability.name), abilityEffect = abilityInfo.effect_entries[0].effect });
             }
 
             return list;

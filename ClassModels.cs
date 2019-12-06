@@ -43,6 +43,11 @@ namespace Pokedex
         public virtual string name { get; set; }
         public string url { get; set; }
     }
+
+    class AbilityInfo
+    {
+        public EffectContainer[] effect_entries { get; set; }
+    }
     #endregion
 
     #region Stats
@@ -112,24 +117,6 @@ namespace Pokedex
 
     #endregion
 
-    #region TypeSearch
-    class TypeInfo
-    {
-        public PokemonContainer[] pokemon { get; set; }
-    }
-
-    class PokemonContainer
-    {
-        public PokeInfo pokemon { get; set; }
-        public int slot { get; set; }
-    }
-
-    class PokeInfo
-    {
-        public string name { get; set; }
-        public string url { get; set; }
-    }
-
     class TypeContainer
     {
         public int slot { get; set; }
@@ -141,5 +128,4 @@ namespace Pokedex
         public string name { get; set; }
         public string url { get; set; }
     }
-    #endregion
 }

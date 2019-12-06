@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,8 +26,9 @@ namespace Pokedex
         IRestResponse response;
 
         Pokemon poke;
-        TypeInfo type;
         Lists lists;
+
+        Dictionary<string, int> stats = new Dictionary<string, int>();
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -36,6 +38,16 @@ namespace Pokedex
 
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 500;
+            hpProgressBar.Minimum = 0;
+            hpProgressBar.Maximum = 200;
+            attackProgressBar.Minimum = 0;
+            attackProgressBar.Maximum = 200;
+            speedProgressBar.Minimum = 0;
+            speedProgressBar.Maximum = 200;
+            defenseProgressBar.Minimum = 0;
+            defenseProgressBar.Maximum = 200;
+            sdProgressBar.Minimum = 0;
+            saProgressBar.Maximum = 200;
 
             watch.Start();
 
@@ -73,13 +85,20 @@ namespace Pokedex
 
             List<Items> items = null;
             List<Moves> moves = null;
+            List<AbilityPrint> abilities = null;
             List<EncounterArea> locations = null;
 
             if (poke != null)
             {
                 items = lists.GetItems;
                 moves = lists.GetMoves;
+                abilities = lists.GetAbilities;
                 locations = lists.GetEncounterLocations;
+            }
+
+            foreach(StatContainer s in poke.stats)
+            {
+                stats.Add(s.stat.name, s.base_stat);
             }
 
             watch.Stop();
@@ -88,34 +107,37 @@ namespace Pokedex
 
             watch2.Start();
 
-            APITime.Text = "Instantiation: " + $"Execution Time: {watch.ElapsedMilliseconds / 1000} sec";
-            pokemonName.Text = NameToUpper(poke.name);
-            heightLable.Text = "Height: " + poke.height.ToString();
-            expLable.Text = "Exp: " + poke.base_experience.ToString();
-            progressBar1.Value = poke.base_experience;
-            typeLable.Text = "Type: " + poke.types[0].type.name;
-            pokemonImage.ImageLocation = poke.sprites.front_default;
+            PrintLables(watch);
 
-            StatListView.Items.Clear();
+            PrintListViews(items, moves, locations, abilities);
+
+            watch2.Stop();
+
+            PrintTime.Text = "Printing: " + $"Execution Time: {watch2.ElapsedMilliseconds / 1000} sec";
+        }
+
+        private void PrintListViews(List<Items> items, List<Moves> moves, List<EncounterArea> locations, List<AbilityPrint> abilities)
+        {
+            /*StatListView.Items.Clear();
 
             foreach (var s in poke.stats)
             {
                 // An array containing the info in my chosen order
-                var listRow = new string[] { NameToUpper(s.stat.name), s.base_stat.ToString() };
+                var listRow = new ArrayList() { NameToUpper(s.stat.name), s.base_stat.ToString() };
                 // An instance of the ListViewItem class which uses an array of strings to represent the subitems in the listView. The array used is the one i made above 
-                var listItem = new ListViewItem(listRow);
+                var listItem = new ListViewItem((string[])listRow.ToArray(typeof(string)));
                 listItem.Tag = s;
 
                 // Adds the ListViewItem to the ListView
                 StatListView.Items.Add(listItem);
-            }
+            }*/
 
             AbilityListView.Items.Clear();
 
-            foreach (var a in poke.abilities)
+            foreach (var a in abilities)
             {
-                var listRow = new string[] { NameToUpper(a.ability.name), a.is_hidden.ToString(), a.slot.ToString() };
-                var listItem = new ListViewItem(listRow);
+                var listRow = new ArrayList() { a.abilityName, a.abilityEffect };
+                var listItem = new ListViewItem((string[])listRow.ToArray(typeof(string)));
                 listItem.Tag = a;
 
                 AbilityListView.Items.Add(listItem);
@@ -125,8 +147,8 @@ namespace Pokedex
 
             foreach (var i in items)
             {
-                var listRow = new string[] { i.itemName, i.itemCost.ToString(), i.itemFlingPower.ToString() };
-                var listItem = new ListViewItem(listRow);
+                var listRow = new ArrayList() { i.itemName, i.itemCost.ToString(), i.itemFlingPower.ToString() };
+                var listItem = new ListViewItem((string[])listRow.ToArray(typeof(string)));
                 listItem.Tag = i;
 
                 InventoryListView.Items.Add(listItem);
@@ -136,8 +158,8 @@ namespace Pokedex
 
             foreach (var m in moves)
             {
-                var listRow = new string[] { m.moveName, m.movePowerPoint.ToString(), m.moveType, m.moveEffect };
-                var listItem = new ListViewItem(listRow);
+                var listRow = new ArrayList() { m.moveName, m.movePowerPoint.ToString(), m.moveType, m.moveEffect };
+                var listItem = new ListViewItem((string[])listRow.ToArray(typeof(string)));
                 listItem.Tag = m;
 
                 MoveListView.Items.Add(listItem);
@@ -147,57 +169,51 @@ namespace Pokedex
 
             foreach (var l in locations)
             {
-                var listRow = new string[] { l.locationName };
-                var listItem = new ListViewItem(listRow);
+                var listRow = new ArrayList() { l.locationName };
+                var listItem = new ListViewItem((string[])listRow.ToArray(typeof(string)));
                 listItem.Tag = l;
 
                 locationListView.Items.Add(listItem);
             }
-
-            watch2.Stop();
-
-            PrintTime.Text = "Printing: " + $"Execution Time: {watch2.ElapsedMilliseconds / 1000} sec";
         }
 
-        private void TypeSearchButton_Click(object sender, EventArgs e)
+        private void PrintLables(System.Diagnostics.Stopwatch watch)
         {
-            request = new RestRequest("pokemon/" + TypeSearchTextBox.Text.ToLower());
-            response = client.Get(request);
-
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            APITime.Text = "Instantiation: " + $"Execution Time: {watch.ElapsedMilliseconds / 1000} sec";
+            pokemonName.Text = NameToUpper(poke.name);
+            expLable.Text = "Exp: " + poke.base_experience.ToString();
+            label10.Text = "Weight: " + poke.weight;
+            label11.Text = "Height: " + poke.height;
+            progressBar1.Value = poke.base_experience;
+            if (poke.types.Length > 0)
             {
-                warningLable2.Text = "Type does not exist!";
+                List<string> values = new List<string>();
+                foreach (TypeContainer t in poke.types)
+                {
+                    values.Add(t.type.name);
+                }
+                string type = string.Join(" - ", values.ToArray());
+                label9.Text = type;
             }
             else
             {
-                warningLable2.Text = null;
-                type = JsonConvert.DeserializeObject<TypeInfo>(response.Content);
+                label9.Text = "Type: " + poke.types[0].type.name;
             }
+            pictureBox1.ImageLocation = poke.sprites.front_default;
+            stats.TryGetValue("hp", out int hp);
+            hpProgressBar.Value = hp;
+            stats.TryGetValue("attack", out int attack);
+            attackProgressBar.Value = attack;
+            stats.TryGetValue("attack", out int defense);
+            defenseProgressBar.Value = defense;
+            stats.TryGetValue("attack", out int speed);
+            speedProgressBar.Value = speed;
+            stats.TryGetValue("attack", out int sd);
+            sdProgressBar.Value = sd;
+            stats.TryGetValue("attack", out int sa);
+            saProgressBar.Value = sa;
+            total.Text = (hp + attack + defense + speed + sd + sa).ToString();
 
-            var pokemons = GetPokemonList();
-
-            TypeDataGridView.Rows.Clear();
-
-            foreach (var t in pokemons)
-            {
-                TypeDataGridView.Rows.Add(t.ImageUrl, t.Name, t.Exp, t.Height, t.Weight);
-            }
-        }
-
-        private List<Types> GetPokemonList()
-        {
-            var list = new List<Types>();
-
-            foreach (PokemonContainer p in type.pokemon)
-            {
-                string[] url = p.pokemon.url.Split('/');
-                request = new RestRequest("pokemon/" + p.pokemon.name);
-                response = client.Get(request);
-                poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
-                list.Add(new Types() { ImageUrl = p.pokemon.url, Name = p.pokemon.name, Exp = poke.base_experience, Height = poke.height, Weight = poke.weight });
-            }
-
-            return list;
         }
 
         // A method that makes the first letters in names upper case
@@ -240,6 +256,34 @@ namespace Pokedex
             }
 
             return result;
+        }
+
+
+        #region bullshit
+        private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PokemonName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FlowLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void Label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

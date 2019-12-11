@@ -3,7 +3,7 @@
   <Class Name="Pokedex.Pokemon">
     <Position X="9.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAQAAAAAAAAAQAAMCAAgAAABAAKAAAE=</HashCode>
+      <HashCode>AAAAIAAQAAAAAAQAAAAAAAAAQAAMCAAgAAABAAKAAAE=</HashCode>
       <FileName>ClassModels.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="Pokedex.MoveInfo" Collapsed="true">
     <Position X="6.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAIAAAABAAAAAAAAQAAAAAA=</HashCode>
       <FileName>ClassModels.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -91,27 +91,6 @@
       <FileName>ClassModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Pokedex.TypeInfo" Collapsed="true">
-    <Position X="4.5" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClassModels.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Pokedex.PokemonContainer" Collapsed="true">
-    <Position X="2.75" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
-      <FileName>ClassModels.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Pokedex.PokeInfo" Collapsed="true">
-    <Position X="4.5" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ClassModels.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Pokedex.TypeContainer" Collapsed="true">
     <Position X="2.75" Y="6" Width="1.5" />
     <TypeIdentifier>
@@ -124,13 +103,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ClassModels.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Pokedex.List" Collapsed="true">
-    <Position X="4.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAECAAAAACAAAABwAAACAQACAAgAAAAAABAAAAAA=</HashCode>
-      <FileName>List.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pokedex.Items" Collapsed="true">

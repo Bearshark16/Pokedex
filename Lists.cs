@@ -116,10 +116,8 @@ namespace Pokedex
                 request = new RestRequest("move/" + url[6]);
                 response = client.Get(request);
                 moveInfo = JsonConvert.DeserializeObject<MoveInfo>(response.Content);
-                list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
 
-                /*
-                if (moveInfo.effect_entries[0].effect.Contains("$effect_chance"))
+                if (moveInfo.effect_entries[0].effect.Contains("$effect_chance") && moveInfo.effect_chance != null)
                 {
                     list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = GetEffectChance(moveInfo.effect_entries[0].effect, moveInfo.effect_chance), movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
                 }
@@ -127,7 +125,7 @@ namespace Pokedex
                 {
                     list.Add(new Moves() { moveName = Pokedex.NameToUpper(m.move.name), moveEffect = moveInfo.effect_entries[0].effect, movePowerPoint = moveInfo.pp, moveType = moveInfo.type.name });
                 }
-                */
+                
             }
 
             return list;
@@ -165,7 +163,7 @@ namespace Pokedex
             return list;
         }
 
-        private string GetEffectChance(string effect, int effect_chance)
+        private string GetEffectChance(string effect, int? effect_chance)
         {
             string result;
 

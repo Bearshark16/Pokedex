@@ -32,9 +32,13 @@ namespace Pokedex
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            stats.Clear();
+
             // Too stop watches that that messures the two main parts of my code. The part that instantiates the classes and the part that prints the information contained within them
             var watch = new System.Diagnostics.Stopwatch();
             var watch2 = new System.Diagnostics.Stopwatch();
+
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
 
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 500;
@@ -73,6 +77,11 @@ namespace Pokedex
             {
                 warnngLable.Text = null;
                 poke = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+            }
+
+            if (poke == null)
+            {
+                return;
             }
 
             /* Retrives lists of objects containing information for the listViews in the windows form 
@@ -190,7 +199,7 @@ namespace Pokedex
                 List<string> values = new List<string>();
                 foreach (TypeContainer t in poke.types)
                 {
-                    values.Add(t.type.name);
+                    values.Add(NameToUpper(t.type.name));
                 }
                 string type = string.Join(" - ", values.ToArray());
                 label9.Text = type;
@@ -279,11 +288,16 @@ namespace Pokedex
         {
 
         }
-        #endregion
 
         private void Label10_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void Pokedex_Load(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

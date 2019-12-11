@@ -127,20 +127,6 @@ namespace Pokedex
 
         private void PrintListViews(List<Items> items, List<Moves> moves, List<EncounterArea> locations, List<AbilityPrint> abilities)
         {
-            /*StatListView.Items.Clear();
-
-            foreach (var s in poke.stats)
-            {
-                // An array containing the info in my chosen order
-                var listRow = new ArrayList() { NameToUpper(s.stat.name), s.base_stat.ToString() };
-                // An instance of the ListViewItem class which uses an array of strings to represent the subitems in the listView. The array used is the one i made above 
-                var listItem = new ListViewItem((string[])listRow.ToArray(typeof(string)));
-                listItem.Tag = s;
-
-                // Adds the ListViewItem to the ListView
-                StatListView.Items.Add(listItem);
-            }*/
-
             AbilityListView.Items.Clear();
 
             foreach (var a in abilities)
